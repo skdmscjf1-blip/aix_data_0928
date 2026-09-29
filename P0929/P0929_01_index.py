@@ -2,12 +2,11 @@
 import pandas as pd
 
 # 1차원데이터 - Series
-# temp = pd.Series([-20,-10,0,10,20],index=['1월','2월','3월','4월','5월'])
-# print(temp)
-# print(temp['1월'])
-# print(temp[['1월','2월']]) #2개 데이터를 검색시 [[]]
+temp = pd.Series([-20,-10,0,10,20],index=['1월','2월','3월','4월','5월'])
+print(temp)
+print(temp[['1월','2월']])  # 2개 데이터를 검색시 [[]]
 
-#2차원데이터 - DataFrame : 딕셔너리타입의 리스트 형태
+# 2차원데이터 - DataFrame : 딕셔너리타입의 리스트 형태
 data = {
     '이름':['강나래','강태원','강호림','김수찬','김재욱','박동현','박혜정','승근열'],
     '학교':['신림고','신림고','신림고','신림고','신림고','디지털고','디지털고','디지털고'],
@@ -20,35 +19,35 @@ data = {
     'SW특기' : ['Python', 'Java', 'Javascript', '', '', 'C', 'PYTHON', 'C#']
 }
 
+
 # DataFrame 변환
-# df=pd.DataFrame(data)
+df = pd.DataFrame(data)
+print(df)
+
+# index추가
+# df = pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
 # print(df)
 
-#index 추가
-# df=pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
-# print(df)
-
-# DataFrame 생성후 index를 지정 , inplace = True : index가 지정되어 반영됨
-# df=pd.DataFrame(data)
-# print(df.set_index('이름',inplace=True)) #이름컬럼을 index로 지정
+# DataFrame 생성후 index를 지정, inplace=True:index가 지정되어 반영됨.
+# df = pd.DataFrame(data)
+# print(df.set_index('이름',inplace=True)) # 이름컬럼을 index지정
 # print(df)
 
 
-#index를 지정 - index 컬럼 이름을 지정할수 있음.
-# df=pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
+# index를 지정 - index컬럼 이름을 지정할수 있음
+# df = pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
 # df.index.name = '지원번호'
 # print(df)
 
-# index지정해제 - drop = True : index를 삭제함. inplace=True :완전히삭제 반영시켜 저장
-# df=pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
+# index지정해제 - drop=True:index를 삭제함. inplace=True:완전반영시켜저장
+# df = pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
 # df.index.name = '지원번호'
 # print(df.reset_index(drop=True,inplace=True))
 # print(df)
 
-# sort_index : index 정렬   ,   inplace = True : 완전지정되어 저장
-# ascending = True : 순차정렬 , ascending = False : 역순정렬
-df=pd.DataFrame(data)
+# sort_index: index정렬, inplace=True:완전지정되어 저장
+# ascending=True:순차정렬, ascending=False:역순정렬
+df = pd.DataFrame(data)
 df.set_index('이름',inplace=True)
 df.sort_index(inplace=True,ascending=False) #역순정렬
 print(df)
-

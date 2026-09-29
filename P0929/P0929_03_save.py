@@ -1,5 +1,4 @@
 import pandas as pd
-
 data = {
     '이름':['강나래','강태원','강호림','김수찬','김재욱','박동현','박혜정','승근열'],
     '학교':['신림고','신림고','신림고','신림고','신림고','디지털고','디지털고','디지털고'],
@@ -11,8 +10,11 @@ data = {
     '사회' : [85, 25, 75, 80, 10, 80, 35, 95],
     'SW특기' : ['Python', 'Java', 'Javascript', '', '', 'C', 'PYTHON', 'C#']
 }
-df=pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
+
+df = pd.DataFrame(data,index=['1번','2번','3번','4번','5번','6번','7번','8번'])
 df.index.name = '지원번호'
 print(df)
 
-# df.to_csv('P0929/file/score.csv',encoding='utf-8-sig')
+# csv파일저장 - csv,txt,xlsx
+# database프로그램과 호환가능
+df.to_csv('file/score.csv',encoding='utf-8-sig') #utf-8-sig:excel파일에 확인가능
